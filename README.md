@@ -21,9 +21,9 @@ To implement the  URL Lookup Service, I have selected following Tools
 - H2 DB Configuration can be found or modified in application.properties under {project} -> src/main/resources
 - Once Application Starts Running, H2 DB Console can be found at http://localhost:8090/h2-console/
   - DB Credential :
-      jdbc url: jdbc:h2:~/test_db
-      username: sa
-      password: password
+      - jdbc url: jdbc:h2:~/test_db
+      - username: sa
+      - password: password
 - Mapping insert SQL script named 'data.sql' is under src/main/resources.
 
 Note: We can add more data in this script to test additional mapping.
@@ -49,11 +49,11 @@ Note: We can add more data in this script to test additional mapping.
 
   - Run this command from root project
 
-    mvn clean install
+    - mvn clean install
 
   - Once the above command execution gets completed, run below mentioned command to run the application:
 
-    mvn spring-boot:run
+    - mvn spring-boot:run
 
   This will run the application in http://localhost:8090/
 
@@ -73,13 +73,14 @@ Note: We can add more data in this script to test additional mapping.
 
   (GET) http://localhost:8090/urllookup/findprettyurls
 
-  1. Request:
+  1.
+  - Request:
   [{
     "fromUrl" : "/products?gender=female"
     }
   ]
 
-   Response:
+   - Response:
    "urlMappingDetails": [
          {
              "id": 2,
@@ -90,13 +91,14 @@ Note: We can add more data in this script to test additional mapping.
      "erroMappingDetails": []
  }
 
-  2. Request(Nearest possible match):
+  2.
+  - Request(Nearest possible match):
   [{
     "fromUrl" : "/products?gender=female&tag=123&tag=1234&tag=5678&tag=7654"
   }
   ]
 
-  Response:
+  - Response:
   {
     "urlMappingDetails": [
         {
@@ -108,7 +110,8 @@ Note: We can add more data in this script to test additional mapping.
     "erroMappingDetails": []
   }
 
-  3. Request(Nearest possible match and not mapped url):
+  3.
+  - Request(Nearest possible match and not mapped url):
   [{
     "fromUrl" : "/products?brand=5567888"
    },{
@@ -118,7 +121,7 @@ Note: We can add more data in this script to test additional mapping.
     }
   ]
 
-  Response:
+  - Response:
   {
     "urlMappingDetails": [
         {
@@ -140,13 +143,14 @@ Note: We can add more data in this script to test additional mapping.
   }
 
 ## URL Lookup - Parameterized URL by Pretty URL
-==============================
+==============================================
+
   (GET) http://localhost:8090/urllookup/findparameterizedurl
 
-   Request:
+   - Request:
    [ { "toUrl": "/Women/Shoes/"}]
 
-   Response:
+   - Response:
    {
     "urlMappingDetails": [
         {
