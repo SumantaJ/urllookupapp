@@ -49,11 +49,11 @@ Note: We can add more data in this script to test additional mapping.
 
   - Run this command from root project
 
-    - mvn clean install
+     `mvn clean install`
 
   - Once the above command execution gets completed, run below mentioned command to run the application:
 
-    - mvn spring-boot:run
+     `mvn spring-boot:run`
 
   This will run the application in http://localhost:8090/
 
@@ -74,13 +74,13 @@ Note: We can add more data in this script to test additional mapping.
   (GET) http://localhost:8090/urllookup/findprettyurls
 
   1.
-  - Request:
+  - **Request:**
   [{
     "fromUrl" : "/products?gender=female"
     }
   ]
 
-   - Response:
+   - **Response:**
    "urlMappingDetails": [
          {
              "id": 2,
@@ -92,13 +92,13 @@ Note: We can add more data in this script to test additional mapping.
  }
 
   2.
-  - Request(Nearest possible match):
+  - **Request(Nearest possible match):**
   [{
     "fromUrl" : "/products?gender=female&tag=123&tag=1234&tag=5678&tag=7654"
   }
   ]
 
-  - Response:
+  - **Response:**
   {
     "urlMappingDetails": [
         {
@@ -111,7 +111,7 @@ Note: We can add more data in this script to test additional mapping.
   }
 
   3.
-  - Request(Nearest possible match and not mapped url):
+  - **Request(Nearest possible match and not mapped url):**
   [{
     "fromUrl" : "/products?brand=5567888"
    },{
@@ -121,7 +121,7 @@ Note: We can add more data in this script to test additional mapping.
     }
   ]
 
-  - Response:
+  - **Response:**
   {
     "urlMappingDetails": [
         {
@@ -143,14 +143,14 @@ Note: We can add more data in this script to test additional mapping.
   }
 
 ## URL Lookup - Parameterized URL by Pretty URL
-==============================================
+===============================================
 
   (GET) http://localhost:8090/urllookup/findparameterizedurl
 
-   - Request:
+   - **Request:**
    [ { "toUrl": "/Women/Shoes/"}]
 
-   - Response:
+   - **Response:**
    {
     "urlMappingDetails": [
         {
@@ -165,11 +165,12 @@ Note: We can add more data in this script to test additional mapping.
 
 ## Test Cases
 ====================
-	Under src/test/java/
+
+	>Under src/test/java/
 
 
 ## Thoughts about the design:
-======================================================
+=============================
 
 1. I have assumed a limited number of mapping exist in DB, but, for larger dataset I would not directly call find all from DB every time. Instead will implement some sort of distributed caching mechanism (Redis/Hazelcast).
 
